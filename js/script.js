@@ -2,7 +2,7 @@
 var app = {
     init: function () {
 
-        var currentDate = new Date();
+        var currentDate = this.currentDate;
 
         this.fillDateSelects();
 
@@ -25,10 +25,11 @@ var app = {
             pages: 32
         }
     },
+    currentDate: new Date(),
     fillDateSelects: function () {
 
-        var currentDate = new Date(),
-            currentYear = currentDate.getFullYear();
+        var currentDate = this.currentDate,
+            currentYear = currentDate.getUTCFullYear();
 
         var processOptions = function (start, finish) {
             var result = [];
@@ -50,6 +51,7 @@ var app = {
 
         var pages = this.processPages(publication, day, month, year);
 
+        this.renderPages(pages);
 
 
 
@@ -69,7 +71,19 @@ var app = {
 
         return pages;
 
+    },
+    renderPages: function(pages){
+        //publication-content
+        var $publication = $("#publication-content");
+        $publication.empty();
+        $(pages).each(function (i) {
+            $publication.append("<img src='" + pages[i] + "' />");
+        });
+
+
     }
+
+
 }
 
 ;
