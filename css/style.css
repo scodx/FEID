@@ -1,0 +1,16 @@
+body{
+    background-color: black;
+    color: white;
+    font-family: Verdana;
+    font-size: 12px;
+}
+input, select {
+    color: black;
+}
+#publication-content{
+    width: 100%;
+}
+#publication-content img{
+    margin: 0;
+    width: 49%;
+}
