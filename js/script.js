@@ -7,25 +7,35 @@ var app = {
         this.fillDateSelects();
 
         $("#day").val(currentDate.getUTCDate());
-        $("#month").val(currentDate.getUTCMonth());
+        $("#month").val(currentDate.getUTCMonth() + 1);
         $("#year").val(currentDate.getUTCFullYear());
 
     },
     publications: {
         tabascohoy: {
-            pages: 56
+            data: {},
+            minPages: 50,
+            maxPages: 75
         },
         criollo: {
-            pages: 32
+            data: {},
+            minPages: 28,
+            maxPages: 45
         },
         basta: {
-            pages: 40
+            data: {},
+            minPages: 35,
+            maxPages: 45
         },
         campeche: {
-            pages: 32
+            data: {},
+            minPages: 28,
+            maxPages: 45
         }
     },
     currentDate: new Date(),
+    pages: [],
+    stopSearching: false,
     fillDateSelects: function () {
 
         var currentDate = this.currentDate,
@@ -49,44 +59,77 @@ var app = {
 
         //The newspaper library starts from Oct 1 2010
 
-        var pages = this.processPages(publication, day, month, year);
+        this.processPages(publication, day, month, year);
 
-        this.renderPages(pages);
-
-
+        this.renderPages();
 
     },
     processPages: function (publication, day, month, year) {
-        var pages   = [],
-            page    = 0,
-            baseURL = "http://www.eid.com.mx/edicionimpresa/" +
-                year + "/" + month + "/" + day + "/" +
-                publication + "/seguro/files/assets/mobile/pages/page00",
-                publication = this.publications[publication];
 
-        for (p = 1; p <= publication.pages; p++) {
-            page = (p < 10) ? "0" + p.toString() : p.toString();
-            pages.push(baseURL + page + "_i1.jpg");
+        var publicationData = this.publications[publication];
+
+        app.pages = [];
+        app.stopSearching = false;
+
+        for (p = 1; p <= publicationData.maxPages; p++) {
+
+            if(this.stopSearching === false){
+
+                var pageURL = this.buildPageURL(this.buildIntString(p), publication, year, month, day);
+
+                if(p >= publicationData.minPages){
+                    this.imageExist(
+                        pageURL,
+                        function(){
+                            app.pages.push(pageURL);
+                        },
+                        function(){
+                            app.stopSearching = true;
+                        }
+                    );
+                }else{
+                    this.pages.push(pageURL)
+                }
+
+            }
+
         }
 
-        return pages;
+        return this.pages;
 
     },
-    renderPages: function(pages){
+    imageExist: function (url, callbackSuccess, callbackError) {
+        $.ajax({
+            url: url,
+            type:'HEAD',
+            async: false,
+            error: callbackError,
+            success: callbackSuccess
+        });
+    },
+    buildPageURL: function(page, publicationName, year, month, day){
+
+        var baseURL = "http://www.eid.com.mx/edicionimpresa/" +
+            year + "/" + month + "/" + day + "/" +
+            publicationName + "/seguro/files/assets/mobile/pages/page00";
+
+        return baseURL + page + "_i1.jpg";
+
+    },
+    buildIntString: function (i) {
+        return (i < 10) ? "0" + i.toString() : i.toString();
+    },
+    renderPages: function(){
         //publication-content
         var $publication = $("#publication-content");
         $publication.empty();
-        $(pages).each(function (i) {
-            $publication.append("<img src='" + pages[i] + "' />");
+        $(app.pages).each(function (i) {
+            $publication.append("<img src='" + app.pages[i] + "' />");
         });
-
 
     }
 
-
-}
-
-;
+};
 
 
 
@@ -94,14 +137,13 @@ jQuery(function(){
 
     app.init();
 
-
     $("form").submit(function(e){
 
         e.preventDefault();
 
         var publication = $("#publication").val(),
-            day         = $("#day").val(),
-            month       = $("#month").val(),
+            day         = app.buildIntString( $("#day").val() ),
+            month       = app.buildIntString( $("#month").val() ),
             year        = $("#year").val();
 
         app.getPublication(publication, day, month, year);
@@ -109,8 +151,6 @@ jQuery(function(){
         return false;
 
     });
-
-
 
 });
 
