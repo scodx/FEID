@@ -2,32 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FEID - FREE Edición Impresa Digital</title>
-    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
+
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+
     <script src="js/script.js"></script>
 </head>
 <body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">FEID</a>
+        </div>
 
-<header>
-    <strong>FEID (Free Edición Impresa Digital)</strong>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-    <form action="">
-        Publicación:
-        <select class="" id="publication" name="publication">
-            <option value="tabascohoy">Tabasco - Tabasco HOY</option>
-            <option value="criollo">Tabasco - El Criollo</option>
-            <option value="basta">Distrito Federal - Basta!</option>
-            <option value="campeche">Campeche - Campeche HOY</option>
-        </select>
-        Fecha:
-        <select name="day" id="day"></select> /
-        <select name="month" id="month"></select> /
-        <select name="year" id="year"></select>
-        <input type="submit" value="Enviar">
-    </form>
-</header>
+
+            <form action="" class="navbar-form navbar-left">
+                <div class="form-group">
+                    <label for="publication">Publicación:</label>
+                    <select class="form-control" id="publication" name="publication">
+                        <option value="tabascohoy">Tabasco - Tabasco HOY</option>
+                        <option value="criollo">Tabasco - El Criollo</option>
+                        <option value="basta">Distrito Federal - Basta!</option>
+                        <option value="campeche">Campeche - Campeche HOY</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="day">Fecha:</label>
+                    <select class="form-control" name="day" id="day"></select>
+                    <label for="month" class="sr-only">/</label>
+                    <select class="form-control" name="month" id="month"></select>
+                    <label for="year" class="sr-only">/</label>
+                    <select class="form-control" name="year" id="year"></select>
+                </div>
+                <input class="btn btn-primary" type="submit" value="Enviar">
+            </form>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid">
+
+    <div id="controls" class="row">
+        <div class="col-md-3 col-sm-3 col-xs-3 control-item">
+            <i class="fa fa-fast-backward "></i>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3  control-item">
+            <i class="fa fa-chevron-left"></i>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 control-item">
+            <i class="fa fa-chevron-right"></i>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 control-item">
+            <i class="fa fa-fast-forward "></i>
+        </div>
+    </div>
+
+</div>
 
 <div id="publication-content">
 

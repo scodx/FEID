@@ -1,16 +1,31 @@
 body{
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: #0094db;
     font-family: Verdana;
-    font-size: 12px;
+    /*font-size: 12px;*/
 }
 input, select {
-    color: black;
+    color: #eb128b;
 }
+
+form{
+    /*display: inline;*/
+}
+
+#controls{
+    font-size: 30px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#controls .control-item{
+
+}
+
 #publication-content{
     width: 100%;
 }
 #publication-content img{
-    margin: 0;
-    width: 49%;
+    margin-left:4%;;
+    width: 95%;
 }
