@@ -25,6 +25,7 @@ a#app-title{
     position: fixed;
     width: 100%;
     background-color: white;
+    z-index: 100;
 }
 
 #controls .control-item{
