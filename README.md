@@ -6,4 +6,10 @@ Tabasco Hoy is the major circulation newspaper in the state of Tabasco, Mexico. 
 
 I the developer (scodx) do not own any copyright rights to the publications and since the images are being pulled from their servers, FEID does not store any images or content from Canton's Group (the holder company of the newspaper), the only thing that this proof of concept does is displaying them.
 
+Being said that, this is not a tool to use to read the newspaper, if you like the publications from Canton Group go to http://eid.com.mx/ and pay for a subscription, their tool (built in Flash :s) is very useful and has advanced features that this POC doesn't. 
+
+There is no warranty that all dates and publications searched will load, this is because this POC follows a pattern found in the public URL's of the images ( /year/month/day/publication]/ ).
+
+
+
 Contact: Visit github.com/scodx/FEID
