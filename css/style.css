@@ -12,10 +12,19 @@ form{
     /*display: inline;*/
 }
 
+a#app-title{
+    color: #eb128b;
+    font-weight: bolder;
+}
+
 #controls{
     font-size: 30px;
     cursor: pointer;
     text-align: center;
+    margin-top: 50px;
+    position: fixed;
+    width: 100%;
+    background-color: white;
 }
 
 #controls .control-item{
@@ -24,8 +33,51 @@ form{
 
 #publication-content{
     width: 100%;
+    margin-top: 85px;
+    position: relative;
 }
 #publication-content img{
-    margin-left:4%;;
-    width: 95%;
+    /*margin-top: 77px;*/
+    /*margin-left:4%;;*/
+    /*width: 95%;*/
+    /*position: absolute;*/
+    /*top: 30px;*/
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
