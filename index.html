@@ -8,15 +8,13 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
 
-    <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
 
@@ -25,7 +23,7 @@
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
+
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-form" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
@@ -36,7 +34,6 @@
             <a class="navbar-brand" id="app-title" href="#">FEID</a>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-form">
             <form action="" class="navbar-form navbar-left">
                 <div class="form-group">
@@ -58,7 +55,6 @@
                 </div>
                 <div class="form-group">
                     <label for="img-quality">Calidad de la imágen:</label>
-                    <!--<div id="img-qualityd">-->
                         <label for="img-quality-low" title="Smartphones, dispositivos con banda ancha baja">
                             <input value="low" type="radio" name="img_q" id="img-quality-low" checked >
                             Baja
@@ -67,7 +63,6 @@
                             <input value="high" type="radio" name="img_q" id="img-quality-high">
                             Alta
                         </label>
-                    <!--</div>-->
                 </div>
                 <input class="btn btn-primary" type="submit" value="Buscar">
 
@@ -76,7 +71,6 @@
             <a href="README.md" target="_blank" id="info" type="button" class="btn btn-default btn-info navbar-btn" >
                 <i class="fa fa-info-circle"></i>
             </a>
-
 
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -97,12 +91,11 @@
             </div>
 
 
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </div>
+    </div>
 </nav>
 
 <div class="container-fluid">
-
     <div id="controls" class="row">
         <div id="controls-first-page" class="col-md-3 col-sm-3 col-xs-3 control-item">
             <i class="fa fa-fast-backward "></i>
@@ -117,12 +110,12 @@
             <i class="fa fa-fast-forward "></i>
         </div>
     </div>
-
 </div>
 
 <div id="publication-content">
-
 </div>
+
+
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
